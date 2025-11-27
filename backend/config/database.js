@@ -22,7 +22,7 @@ const initializeDatabase = async () => {
     await connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'event_registration'}`);
     await connection.end();
 
-    const [rows] = await pool.query(`
+    await pool.query(`
       CREATE TABLE IF NOT EXISTS registrations (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
